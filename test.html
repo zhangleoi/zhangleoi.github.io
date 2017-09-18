@@ -9,36 +9,70 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>成绩查询</title>
-</head>
+
+    <script>
+        function myFunction()
+        {
+
+            var id_code = document.getElementById("id_code").value;
+            var test_code = document.getElementById("test_code").value;
+            var code = document.getElementById("code").value;
+
+                if(id_code == "123")
+                {
+                    if(test_code == "456"){
+
+                        if(code == "12707"){
+                            document.getElementById("form_cell").style.display="none";//隐藏
+                            document.getElementById("result_cell").style.display="";//显
+
+                        }else {
+
+                            alert("验证码输入错误");
+                        }
+
+                    }else {
+                        alert("准考证号码输入错误");
+                    }
+                }
+                else{
+                    alert("证件号码输入错误");
+                }
+
+        }
+    </script>
 </head>
 <body bgcolor="white" text="#000000">
 
 <div align="center" >
     <img src="header.jpg" width="100%" height="115">
-        <form name="form1" method="post" action="" onSubmit="return Form1_Validator(this)">
+
+        <form id="form_cell" name="form1" method="post" action="" onSubmit="return Form1_Validator(this)">
         <div align="center">
             <table width="100%" border="0" align="center" cellpadding="8" cellspacing="0">
 
                 <tr align="center">
-                    <td>证件号码：<input type="text" name="id" size="25"></td>
+                    <td>证件号码：<input type="text" name="id" id="id_code" size="25"></td>
                 </tr>
                 <tr align="center">
-                    <td>准考证号：<input type="text" name="id" size="25"></td>
+                    <td>准考证号：<input type="text" name="id" id="test_code" size="25"></td>
                 </tr>
                 <tr align="center">
 
-                <td>验证码：<input type="text" name="id" size="10">                    <img src="code.bmp">
+                <td>验证码：<input type="text" name="id" id="code" size="10">                    <img src="code.bmp">
                 </td>
                 </tr>
             </table>
             <p>
-                <input type="submit" name="Submit" value=" 查询 ">
+                <input type="button" onclick="myFunction()"  value=" 查询 ">
                 &nbsp;
                 <input type="reset" name="Submit2" value="重置">
             </p>
             <p>&nbsp;</p>
         </div>
     </form>
+
+    <img id="result_cell" src="timg.jpeg" width="100%" height="100%" style="display: none;" >
 
 </div>
 <p align="center"></p>
